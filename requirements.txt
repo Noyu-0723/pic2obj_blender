@@ -1,0 +1,33 @@
+﻿# ── PyTorch 系 ──
+torch==1.13.1
+torchvision --index-url https://download.pytorch.org/whl/cu117
+
+# ── Segment Anything ──
+git+https://github.com/facebookresearch/segment-anything.git
+
+# ── MiDaS ──
+opencv-python>=4.5.1.48
+timm>=0.6.12
+
+# ── Open3D ──
+open3d>=0.15.2
+
+# ── TripoSR 系 ──
+omegaconf==2.3.0
+Pillow==10.1.0
+einops==0.7.0
+transformers==4.35.0
+trimesh==4.0.5
+rembg
+huggingface-hub
+imageio[ffmpeg]
+gradio
+xatlas==0.0.9
+moderngl==5.10.0
+
+# ── SAM オプション依存 ──
+pycocotools
+matplotlib
+onnxruntime
+onnx
+jupyter
