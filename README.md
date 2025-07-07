@@ -4,20 +4,17 @@
 
 ## 目次
 1. プロジェクト概要
-2. フォルダ構造
+2. 最終的なフォルダ構造
 3. 動作環境・前提条件
 4. 環境構築手順
-    - Python仮想環境の作成
-    - 依存ライブラリのインストール
-    - 各種モデルのダウンロード
-5. 各ステップの実行方法
     1. 2D画像生成（Stable Diffusion Web UI）
-    2. 背景除去・セグメンテーション（SAM）
-    3. 深度推定（MiDaS）
-    4. 3D復元①：TripoSRによる単一画像→メッシュ
-    5. 3D復元②：Open3Dによる深度→メッシュ
-    6. Blenderでの微調整（任意）
-6. よくある質問 (FAQ)
+    2. 各種モデルのダウンロード
+    3. 背景除去・セグメンテーション（SAM）
+    4. 深度推定（MiDaS）
+    5. 3D復元①：TripoSRによる単一画像→メッシュ
+    6. 3D復元②：Open3Dによる深度→メッシュ
+    7. Blenderでの微調整（任意）
+6. FAQ
 7. ライセンス
 
 ## プロジェクト概要
@@ -29,28 +26,33 @@
 - 最終的に.obj/.mtl（テクスチャPNG）形式で出力
 すべてWindows環境で完全ローカルかつ無料で実行できるよう設計しています。
 
-## フォルダ構造
+## 最終的なフォルダ構造
 ```bash
 project_root/
-├─ .venv/
+├─ .venv_stable/
+├─ .venv_tripo/
 ├─ assets/
-│   ├─ depth/                 # MiDaS深度マップ(.png/.npy)
-│   ├─ raw/                   # SD等で生成した2D画像
-│   └─ masked/                # SAM出力マスク(.png)
+│   ├─ depth/                     # MiDaS深度マップ(.png/.npy)
+│   ├─ masked/                    # SAM出力マスク(.png)
+│   ├─ obj/                       # open3d出力オブジェクト(.obj)
+│   └─ raw/                       # 生成した2D画像
+├─ mdfile/
+│   ├─ generate_image_stable.md   # 画像生成手順
+│   └─ generate_obj_tripo.md      # オブジェクト生成手順
 ├─ mesh/
-│   └─ from_depth/            # Open3D経由のメッシュ(.obj)
+│   └─ from_depth/                # Open3D経由のメッシュ(.obj)
 ├─ scripts/
-│   ├─ generate_image.md      # SD画像生成手順
-│   ├─ sam_segmentation.py    # SAMマスク生成スクリプト
-│   ├─ depth_estimation.py    # 深度推定スクリプト
-│   ├─ run_triposr.sh         # TripoSR実行シェルスクリプト
-│   └─ mesh_from_depth.py     # Open3Dメッシュ化スクリプト
+│   ├─ models/
+│   ├─ depth_estimation.py        # 深度推定スクリプト
+│   ├─ mesh_from_depth.py         # Open3Dメッシュ化スクリプト
+│   └─ sam_segmentation.py        # SAMマスク生成スクリプト
 ├─ stable_diffusion-webui/
-│   └─ outputs/               # 生成した画像
+│   └─ outputs/                   # 生成した画像
+├─ torchmcubes/
 ├─ TropoSR/
-│   └─ outputs/               # TripoSR出力(.obj/.mtl/.png)
-├─ README.md                  # 本ファイル
-└─ requirements.txt           # Python依存ライブラリ一覧
+│   └─ outputs/                   # TripoSR出力(.obj/.mtl/.png)
+├─ README.md                      # 本ファイル
+└─ requirements.txt               # Python依存ライブラリ一覧
 ```
 
 ## 動作環境・前提条件
@@ -100,9 +102,9 @@ depth/depth_maps/*.npy → mesh/from_depth/*.obj
     - スムーズシェーディング、スケール調整、不要頂点削除等を実施
     - 再度 .obj エクスポート
 
-## よくある質問 (FAQ)
+## FAQ
 - Q: GPUがない場合は？→ CPUでも動作しますが、TripoSRなどは処理時間が大幅に増加します。
 - Q: 複数角度からのモデル生成は？→ Stable Diffusionで視点違いの画像を複数生成し、Meshroomでフォトグラメトリを行うか、TripoSRで各角度ごとに生成→手動でマージします。
 
 ## ライセンス
-本プロジェクトはMITライセンスのもと提供します。詳細は LICENSE ファイルを参照してください。
+本プロジェクトはMITライセンスのもと提供します。詳細は LICENSE ファイルを参照してください（今後追加予定）。

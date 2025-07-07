@@ -1,2 +1,0 @@
-cd C:\Users\yuuya\University\pic2obj
-.\.venv_tripo\Scripts\Activate
