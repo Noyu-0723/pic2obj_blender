@@ -1,9 +1,8 @@
-﻿# ── PyTorch 系 ──
-torch==1.13.1
-torchvision --index-url https://download.pytorch.org/whl/cu117
-
 # ── Segment Anything ──
 git+https://github.com/facebookresearch/segment-anything.git
+pycocotools
+onnx
+onnxruntime
 
 # ── MiDaS ──
 opencv-python>=4.5.1.48
@@ -12,22 +11,45 @@ timm>=0.6.12
 # ── Open3D ──
 open3d>=0.15.2
 
-# ── TripoSR 系 ──
+# ── 3D関連 ──
 omegaconf==2.3.0
-Pillow==10.1.0
 einops==0.7.0
-transformers==4.35.0
 trimesh==4.0.5
-rembg
-huggingface-hub
-imageio[ffmpeg]
-gradio
 xatlas==0.0.9
 moderngl==5.10.0
+imageio[ffmpeg]
+rembg
 
-# ── SAM オプション依存 ──
-pycocotools
+# ── Diffusion / Stable Diffusion ──
+transformers==4.30.2
+accelerate
+safetensors
+scikit-image>=0.19
+resize-right
+kornia
+torchdiffeq
+torchsde
+pytorch_lightning
+
+# ── Stable Diffusion Web UI / Tools ──
+gradio==3.41.2
+fastapi>=0.90.1
+requests
+protobuf>=4.25.1
+psutil
+numpy
+Pillow==10.1.0
+pillow-avif-plugin==1.4.3
+jsonmerge
+inflection
+lark
+GitPython
+piexif
+blendmodes
+clean-fid
+facexlib
+open-clip-torch
+tomesd
 matplotlib
-onnxruntime
-onnx
+diskcache
 jupyter

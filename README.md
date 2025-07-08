@@ -57,7 +57,8 @@ project_root/
 
 ## 動作環境・前提条件
 - OS: Windows 10/11
-- Python: 3.10.6
+- Python: 3.9.0、3.10.6
+- PyTorch（任意）: 使用したいCUDAに対応したPyTorch
 - CUDA（任意）: GPUを利用する場合はCUDA対応のNVIDIAドライバ＆Toolkit
 - ディスク容量: モデルや中間データを含めて数GB以上
 - メモリ: Pythonで依存ライブラリを動かすため 8GB以上推奨

@@ -11,6 +11,7 @@ py -3.10 -m venv .venv_stable
 ```bash
 # 仮想環境下で
 python -m pip install --upgrade pip wheel setuptools
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
 pip install -r requirements.txt
 ```
 
@@ -21,9 +22,7 @@ pip install -r requirements.txt
 ```bash
 git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui
 cd stable-diffusion-webui
-pip install -r requirements.txt
 ```
-※先に、requirements.txtの中の「protobuf==3.20.0」という行を「protobuf>=4.25.1」に変更する（TripoSRの環境と競合が発生してしまうため）
 
 ## 4. 起動(必要なライブラリのインストールも自動的に実行される)
 ```bash
