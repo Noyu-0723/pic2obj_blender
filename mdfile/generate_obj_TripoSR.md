@@ -1,4 +1,13 @@
 ## 1. TripoSRインストール
+必要なら先に仮想環境を構築する
+```bash
+# プロジェクトルートで
+cd C:\Users\任意のパス
+py -3.9 -m venv .venv_tripo
+# 有効化
+.\.venv_tripo\Scripts\activate
+```
+
 ```bash
 cd C:\Users\任意のパス
 .\.venv_tripo\Scripts\Activate
@@ -25,15 +34,6 @@ set DISTUTILS_USE_SDK=1
 pip install -r requirements.txt
 pip install onnxruntime
 pip install "pydantic<2.0.0"
-```
-
-必要なら先に仮想環境も構築する
-```bash
-# プロジェクトルートで
-cd C:\Users\任意のパス
-py -3.9 -m venv .venv_tripo
-# 有効化
-.\.venv_tripo\Scripts\activate
 ```
 
 ## 2. 実行

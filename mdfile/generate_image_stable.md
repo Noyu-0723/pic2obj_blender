@@ -1,4 +1,4 @@
-## 必要なら、以下の手順で仮想環境を用意してください
+## 必要なら先に仮想環境を構築する
 ```bash
 # プロジェクトルートで
 cd C:\Users\任意のパス
@@ -9,7 +9,6 @@ py -3.10 -m venv .venv_stable
 
 ## 1. 依存ライブラリのインストール
 ```bash
-# 仮想環境下で
 python -m pip install --upgrade pip wheel setuptools
 pip install -r requirements.txt
 ```
