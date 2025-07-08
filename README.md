@@ -54,6 +54,7 @@ project_root/
 ├─ README.md                      # 本ファイル
 └─ requirements.txt               # Python依存ライブラリ一覧
 ```
+必要なら、[こちら](https://fukuyamauniv-my.sharepoint.com/:u:/g/personal/t5422043_fukuyama-u_ac_jp/EdGDQW9FjZFFrLtW2d4-PVIBd5TfFpjkvHxzTkNQgwLeeQ?e=eIy8fj)からフォルダ全体をインストールできます。
 
 ## 動作環境・前提条件
 - OS: Windows 10/11
@@ -71,7 +72,7 @@ project_root/
     2. プロンプトを入力、生成画像を assets/raw/ に保存
 
 2. 学習済みモデルのダウンロード
-- (SAM)[https://huggingface.co/HCMUE-Research/SAM-vit-h/tree/main]: Meta公式ページから sam_vit_h_4b8939.pth を scripts/models/ に保存
+- [SAM](https://huggingface.co/HCMUE-Research/SAM-vit-h/tree/main): Meta公式ページから sam_vit_h_4b8939.pth を scripts/models/ に保存
 - MiDaS: PyTorch Hubが自動ダウンロード
 
 3. 背景除去・セグメンテーション

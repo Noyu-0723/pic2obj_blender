@@ -15,7 +15,7 @@ pip install -r requirements.txt
 ```
 
 ## 2. モデルのインストール
-(Stable Diffusion)[https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/tree/main]: SD1.5等の.ckptファイルを stable-diffusion-webui/models/Stable-diffusion/ に配置（.3実行後）
+[Stable Diffusion](https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/tree/main): SD1.5等の.ckptファイルを stable-diffusion-webui/models/Stable-diffusion/ に配置（.3実行後）
 
 ## 3. Web UIインストール
 ```bash
@@ -47,7 +47,7 @@ set PYTHONIOENCODING=utf-8
 ```
 
 GITの環境変数を設定していない場合はダウンロードして設定する
-(gitの公式サイト)[https://gitforwindows.org/]
+[gitの公式サイト](https://gitforwindows.org/)
 
 gitのセキュリティ関連のエラーが発生した場合は、以下を実行してリポジトリを信用する設定に変更する
 ※安全なリポジトリであることを確認してから実行する
