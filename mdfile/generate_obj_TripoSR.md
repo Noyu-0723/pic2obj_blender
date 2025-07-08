@@ -1,7 +1,15 @@
 ## 1. TripoSRインストール
-Windows のスタートメニューから「x64 Native Tools コマンド プロンプト for VS 2022」を起動。
+必要なら先に仮想環境を構築する
 ```bash
-cd C:\Users\yuuya\University\pic2obj
+# プロジェクトルートで
+cd C:\Users\任意のパス
+py -3.9 -m venv .venv_tripo
+# 有効化
+.\.venv_tripo\Scripts\activate
+```
+
+```bash
+cd C:\Users\任意のパス
 .\.venv_tripo\Scripts\Activate
 python.exe -m pip install --upgrade pip
 pip install --upgrade pip wheel setuptools
@@ -15,7 +23,7 @@ pip install "pydantic<2.0.0"
 ```
 GPUを使わないなら以下のコマンドを実行
 ```bash
-cd C:\Users\yuuya\University\pic2obj
+cd C:\Users\任意のパス
 .\.venv_tripo\Scripts\Activate
 python.exe -m pip install --upgrade pip
 pip install --upgrade pip wheel setuptools
@@ -26,15 +34,6 @@ set DISTUTILS_USE_SDK=1
 pip install -r requirements.txt
 pip install onnxruntime
 pip install "pydantic<2.0.0"
-```
-
-必要なら先に仮想環境も構築する
-```bash
-# プロジェクトルートで
-cd C:\Users\yuuya\University\pic2obj
-py -3.9 -m venv .venv_tripo
-# 有効化
-.\.venv_tripo\Scripts\activate
 ```
 
 ## 2. 実行
@@ -84,13 +83,16 @@ torchmcubesのビルドでエラーが発生する -> nvtx関連のファイル�
 この場合、[torchmcubesのGitHub](https://github.com/tatsy/torchmcubes.git)から直接torchmcubesをインストールする必要がある。
 実行するコマンドは以下の通り。
 ```bash
-cd C:\Users\yuuya\University\pic2obj
+cd C:\Users\任意のパス
 git clone https://github.com/tatsy/torchmcubes.git
 cd torchmcubes
 # ここで、torchmcubes/CMakeLists.txt の先頭に「set(USE_NVTX OFF CACHE BOOL "Disable NVTX support" FORCE)」を追加
 pip install .
 ```
 これを実行したのち、TripoSR/requirements.txtのtorchmcubesをインストールするための一行をコメントアウトしてからTripoSRディレクトリに移動してインストールすればOK。
+
+それでもうまくいかない場合、C++関連のライブラリやツールが原因だと思われる。
+「コマンドプロンプト」ではなく「x64 Native Tools command prompt for VS 2022」を使用してtorchmcubesのインストールをしてみると改善する可能性がある。
 
 ## 参考文献
 https://weel.co.jp/media/tech/triposr/
